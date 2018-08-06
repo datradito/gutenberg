@@ -440,6 +440,12 @@ export class RichText extends Component {
 			( keyCode === BACKSPACE && isHorizontalEdge( rootNode, true ) ) ||
 			( keyCode === DELETE && isHorizontalEdge( rootNode, false ) )
 		) {
+			// These modifiers would not result in modification of text content,
+			// if they're pressed they should not cause merge or deletion of blocks.
+			if ( ( event.metaKey || event.ctrlKey || event.altKey ) && event.shiftKey ) {
+				return;
+			}
+
 			if ( ! this.props.onMerge && ! this.props.onRemove ) {
 				return;
 			}
