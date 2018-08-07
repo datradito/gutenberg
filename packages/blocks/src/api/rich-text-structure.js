@@ -217,6 +217,8 @@ export function apply( value, current, multiline ) {
 	const { body: future, selection } = toDOM( value, multiline );
 	let i = 0;
 
+	console.log( selection );
+
 	while ( future.firstChild ) {
 		const currentChild = current.childNodes[ i ];
 		const futureNodeType = future.firstChild.nodeType;
@@ -251,12 +253,23 @@ export function apply( value, current, multiline ) {
 	const range = current.ownerDocument.createRange();
 	const collapsed = startContainer === endContainer && startOffset === endOffset;
 
+	console.log( startContainer, startOffset );
+
 	if (
 		collapsed &&
 		startOffset === 0 &&
 		startContainer.previousSibling &&
 		startContainer.previousSibling.nodeType === ELEMENT_NODE &&
 		startContainer.previousSibling.nodeName !== 'BR'
+	) {
+		startContainer.insertData( 0, '\uFEFF' );
+		range.setStart( startContainer, 1 );
+		range.setEnd( endContainer, 1 );
+	} else if (
+		collapsed &&
+		startOffset === 0 &&
+		startContainer === TEXT_NODE &&
+		startContainer.nodeValue.length === 0
 	) {
 		startContainer.insertData( 0, '\uFEFF' );
 		range.setStart( startContainer, 1 );
@@ -416,6 +429,22 @@ export function toDOM( { value, selection = {} }, multiline, _tag ) {
 
 			return element.appendChild( newNode );
 		}, body );
+	}
+
+	if ( start === last || end === last ) {
+		let pointer = body.lastChild;
+
+		if ( pointer.nodeType !== TEXT_NODE ) {
+			pointer = pointer.parentNode.appendChild( doc.createTextNode( '' ) );
+		}
+
+		if ( start === last ) {
+			startPath = createPathToNode( pointer, body, [ 0 ] );
+		}
+
+		if ( end === last ) {
+			endPath = createPathToNode( pointer, body, [ 0 ] );
+		}
 	}
 
 	return {
