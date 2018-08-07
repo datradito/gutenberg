@@ -12,6 +12,7 @@
 	align-items: center;
 
 	@include break-large() {
+
 		.editor-block-switcher .components-toolbar {
 			border-left: $border-width solid $light-gray-500;
 		}
@@ -29,7 +30,7 @@
 	min-height: $block-toolbar-height;
 	border-bottom: $border-width solid $light-gray-500;
 
-	.editor-block-toolbar  {
+	.editor-block-toolbar {
 		border-left: none;
 	}
 
@@ -43,6 +44,7 @@
 	}
 
 	@include break-medium {
+
 		.is-sidebar-opened & {
 			display: block;
 			right: $sidebar-width;

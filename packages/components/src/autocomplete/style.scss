@@ -27,10 +27,12 @@
 	text-align: left;
 
 	&.is-selected {
+
 		@include button-style__focus-active;
 	}
 
 	&:hover {
+
 		@include button-style__hover;
 	}
 }

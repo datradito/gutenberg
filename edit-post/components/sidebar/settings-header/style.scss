@@ -15,15 +15,17 @@
 	margin-left: 0;
 	font-weight: 400;
 	color: $dark-gray-900;
+
 	@include square-style__neutral;
 
 	&.is-active {
 		padding-bottom: 0;
-		border-bottom: 3px solid theme( primary );
+		border-bottom: 3px solid theme(primary);
 		font-weight: 600;
 	}
 
 	&:focus {
+
 		@include square-style__focus;
 	}
 }

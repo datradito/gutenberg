@@ -22,7 +22,7 @@
 	border-bottom: $border-width solid $light-gray-500;
 
 	h3 {
-		margin: 0 0 .5em;
+		margin: 0 0 0.5em;
 	}
 
 	&.is-opened {
@@ -61,6 +61,7 @@
 	margin-top: 0;
 	margin-bottom: 0;
 }
+
 .components-panel__body.is-opened > .components-panel__body-title {
 	margin: -1 * $panel-padding;
 	margin-bottom: 5px;
@@ -74,9 +75,11 @@
 	font-weight: 600;
 	text-align: left;
 	color: $dark-gray-900;
+
 	@include menu-style__neutral;
 
 	&:focus:not(:disabled):not([aria-disabled="true"]) {
+
 		@include menu-style__focus;
 	}
 
@@ -84,10 +87,11 @@
 		position: absolute;
 		right: $item-spacing;
 		top: 50%;
-		transform: translateY( -50% );
+		transform: translateY(-50%);
 	}
 
 	// mirror the arrow horizontally in RTL languages
+
 	/* rtl:begin:ignore */
 	body.rtl & .dashicons-arrow-right {
 		transform: scaleX(-1);
@@ -95,6 +99,7 @@
 		filter: FlipH;
 		margin-top: -10px;
 	}
+
 	/* rtl:end:ignore */
 }
 

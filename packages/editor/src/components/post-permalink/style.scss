@@ -16,6 +16,7 @@
 	// Put toolbar snugly to edge on mobile.
 	margin-left: -$block-padding - $border-width; // This hides the border off the edge of the screen.
 	margin-right: -$block-padding - $border-width;
+
 	@include break-small() {
 		margin-left: -$border-width;
 		margin-right: -$border-width;
@@ -44,8 +45,9 @@
 	position: relative;
 	white-space: nowrap;
 
-	&:after {
-		@include long-content-fade( $size: 20%, $edge: 1px );
+	&::after {
+
+		@include long-content-fade($size: 20%, $edge: 1px);
 	}
 }
 

@@ -23,10 +23,12 @@
 	}
 
 	&:hover:not(:disabled):not([aria-disabled="true"]) {
+
 		@include menu-style__neutral;
 	}
 
 	&:focus:not(:disabled):not([aria-disabled="true"]) {
+
 		@include menu-style__focus;
 	}
 
@@ -45,7 +47,7 @@
 }
 
 .components-menu-item__shortcut {
-	opacity: .5;
+	opacity: 0.5;
 	margin-right: 0;
 	margin-left: auto;
 }

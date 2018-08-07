@@ -1,5 +1,6 @@
 
 .components-range-control {
+
 	.components-base-control__field {
 		display: flex;
 		justify-content: center;
@@ -55,17 +56,20 @@
 	// webkit
 	&::-webkit-slider-thumb {
 		-webkit-appearance: none;
+
 		@include range-thumb();
 		margin-top: -7px;	// necessary for chrome
 	}
 
 	// moz
 	&::-moz-range-thumb {
+
 		@include range-thumb();
 	}
 
 	// ie
 	&::-ms-thumb {
+
 		@include range-thumb();
 		margin-top: 0;	// necessary because edge inherits from chrome
 		height: 14px;
@@ -79,16 +83,19 @@
 
 	// webkit
 	&:focus::-webkit-slider-thumb {
+
 		@include button-style__focus-active;
 	}
 
 	// moz
 	&:focus::-moz-range-thumb {
+
 		@include button-style__focus-active;
 	}
 
 	// ie
 	&:focus::-ms-thumb {
+
 		@include button-style__focus-active;
 	}
 
@@ -96,14 +103,16 @@
  	 * Track
  	 */
 
-	 // webkit
+	// webkit
 	&::-webkit-slider-runnable-track {
+
 		@include range-track();
 		margin-top: -4px;
 	}
 
 	// moz
 	&::-moz-range-track {
+
 		@include range-track();
 	}
 
@@ -113,6 +122,7 @@
 		background: transparent;
 		border-color: transparent;
 		color: transparent;
+
 		@include range-track();
 	}
 }

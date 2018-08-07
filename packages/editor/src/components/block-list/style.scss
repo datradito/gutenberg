@@ -1,4 +1,5 @@
 .editor-block-list__layout .components-draggable__clone {
+
 	& > .editor-block-list__block > .editor-block-list__block-draggable {
 		background: $white; // @todo: ensure this works with themes that invert the color
 		box-shadow: $shadow-popover;
@@ -30,7 +31,7 @@
 	right: 0;
 	bottom: 0;
 	left: 0;
-	z-index: z-index( '.editor-block-list__block-draggable' );
+	z-index: z-index(".editor-block-list__block-draggable");
 
 	> .editor-block-list__block-draggable-inner {
 		position: absolute;
@@ -93,13 +94,14 @@
 }
 
 .editor-block-list__block {
+
 	&.is-hidden *,
 	&.is-hidden > * {
 		visibility: hidden;
 	}
 
 	.editor-block-list__block-edit .reusable-block-edit-panel * {
-		z-index: z-index( '.editor-block-list__block-edit .reusable-block-edit-panel *' );
+		z-index: z-index(".editor-block-list__block-edit .reusable-block-edit-panel *");
 	}
 }
 
@@ -165,23 +167,24 @@
 	/**
 	 * Notices
 	 */
-	 .components-placeholder .components-with-notices-ui {
+	.components-placeholder .components-with-notices-ui {
 		margin: -10px 20px 12px 20px;
-		width: calc( 100% - 40px );
-	 }
-	 .components-with-notices-ui {
+		width: calc(100% - 40px);
+	}
+
+	.components-with-notices-ui {
 		margin: 0 0 12px 0;
 		width: 100%;
 
 		.notice {
-			margin-left: 0px;
-			margin-right: 0px;
+			margin-left: 0;
+			margin-right: 0;
 
 			p {
 				font-size: $default-font-size;
 			}
 		}
-	 }
+	}
 
 	/**
 	 * Block outline layout
@@ -191,11 +194,11 @@
 		position: relative;
 
 		&::before {
-			z-index: z-index( '.editor-block-list__block-edit::before' );
-			content: '';
+			z-index: z-index(".editor-block-list__block-edit::before");
+			content: "";
 			position: absolute;
 			outline: $border-width solid transparent;
-			transition: outline .1s linear;
+			transition: outline 0.1s linear;
 			pointer-events: none;
 
 			// Show wider padding for top level blocks.
@@ -233,7 +236,7 @@
 
 	// Hover style
 	&.is-hovered > .editor-block-list__block-edit::before {
-		outline: $border-width solid theme( outlines );
+		outline: $border-width solid theme(outlines);
 	}
 }
 
@@ -243,6 +246,7 @@
  */
 
 .editor-block-list__layout .editor-block-list__block {
+
 	::-moz-selection {
 		background-color: $blue-medium-highlight;
 	}
@@ -278,19 +282,21 @@
  */
 
 .editor-block-list__layout .editor-block-list__block {
+
 	&.has-warning {
 		min-height: $block-padding + $block-spacing;
 	}
 
 	// Warnings
 	&.has-warning .editor-block-list__block-edit {
-		> :not( .editor-warning ) {
+
+		> :not(.editor-warning) {
 			pointer-events: none;
 			user-select: none;
 		}
 	}
 
-	&.has-warning:not( .is-hovered ) .editor-block-list__block-edit::before {
+	&.has-warning:not(.is-hovered) .editor-block-list__block-edit::before {
 		// Use opacity to work in various editor styles.
 		outline-color: $dark-opacity-light-500;
 
@@ -299,10 +305,10 @@
 		}
 	}
 
-	&.has-warning .editor-block-list__block-edit:after {
-		content: '';
+	&.has-warning .editor-block-list__block-edit::after {
+		content: "";
 		position: absolute;
-		background-color: rgba( $light-gray-100, .8 );
+		background-color: rgba($light-gray-100, 0.8);
 
 		top: -$block-padding;
 		bottom: -$block-padding;
@@ -329,7 +335,7 @@
 	}
 
 	// Reusable blocks
-	&.is-reusable > .editor-block-list__block-edit:before {
+	&.is-reusable > .editor-block-list__block-edit::before {
 		// Use opacity to work in various editor styles.
 		outline: $border-width dashed $dark-opacity-light-500;
 
@@ -342,7 +348,7 @@
 	&[data-align="left"],
 	&[data-align="right"] {
 		// Without z-index, won't be clickable as "above" adjacent content.
-		z-index: z-index( '.editor-block-list__block {core/image aligned left or right}' );
+		z-index: z-index(".editor-block-list__block {core/image aligned left or right}");
 		width: 100%;
 
 		// When images are floated, the block itself should collapse to zero height.
@@ -351,6 +357,7 @@
 
 		// Hide block outline when an image is floated.
 		.editor-block-list__block-edit {
+
 			&::before {
 				content: none;
 			}
@@ -366,9 +373,11 @@
 	&[data-align="left"] {
 		// This is in the editor only; the image should be floated on the frontend.
 		.editor-block-list__block-edit {
+
 			/*!rtl:begin:ignore*/
 			float: left;
 			margin-right: 2em;
+
 			/*!rtl:end:ignore*/
 		}
 	}
@@ -377,13 +386,16 @@
 	&[data-align="right"] {
 		// This is in the editor only; the image should be floated on the frontend.
 		.editor-block-list__block-edit {
+
 			/*!rtl:begin:ignore*/
 			float: right;
 			margin-left: 2em;
+
 			/*!rtl:end:ignore*/
 		}
 
 		.editor-block-toolbar {
+
 			/*!rtl:ignore*/
 			float: right;
 		}
@@ -395,7 +407,7 @@
 		clear: both;
 
 		// Without z-index, the block toolbar will be below an adjecent float
-		z-index: z-index( '.editor-block-list__block {core/image aligned wide or fullwide}' );
+		z-index: z-index(".editor-block-list__block {core/image aligned wide or fullwide}");
 
 		// Mover and settings above
 		> .editor-block-mover,
@@ -440,6 +452,7 @@
 		}
 
 		@include break-wide() {
+
 			> .editor-block-mover {
 				display: block;
 			}
@@ -528,6 +541,7 @@
 	// This essentially duplicates the mobile styles for the appender component
 	// It would be nice to be able to use element queries in that component instead https://github.com/tomhodgins/element-queries-spec
 	.editor-block-list__layout {
+
 		.editor-inserter-with-shortcuts {
 			display: none;
 		}
@@ -565,12 +579,14 @@
 
 	// Elevate when block is selected or hovered.
 	@include break-small() {
+
 		&.is-multi-selected,
 		&.is-selected,
 		&.is-hovered {
+
 			.editor-block-settings-menu,
 			.editor-block-mover {
-				z-index: z-index( '.editor-block-list__block.is-{selected,hovered} .editor-block-{settings-menu,mover}' );
+				z-index: z-index(".editor-block-list__block.is-{selected,hovered} .editor-block-{settings-menu,mover}");
 			}
 		}
 	}
@@ -589,6 +605,7 @@
 
 		// Mobile
 		display: none;
+
 		@include break-small() {
 			display: flex;
 			flex-direction: column;
@@ -609,6 +626,7 @@
 
 		// Mobile
 		display: none;
+
 		@include break-small() {
 			display: block;
 		}
@@ -633,7 +651,7 @@
 		border-top: $border-width solid $light-gray-500;
 		height: $block-toolbar-height;
 
-		transform: translateY( #{ $block-padding + $border-width } );
+		transform: translateY(#{ $block-padding + $border-width });
 
 		@include break-small() {
 			display: none;
@@ -641,6 +659,7 @@
 
 		// Show a shadow below the selected block to imply separation.
 		box-shadow: $shadow-below-only;
+
 		@include break-small() {
 			box-shadow: none;
 		}
@@ -707,21 +726,22 @@
 // Insertion point (includes inbetween inserter and insertion indicator)
 .editor-block-list__insertion-point {
 	position: relative;
-	z-index: z-index( '.editor-block-list__insertion-point' );
+	z-index: z-index(".editor-block-list__insertion-point");
 }
 
 .editor-block-list__insertion-point-indicator {
 	position: absolute;
-	top: calc( 50% - #{ $border-width } );
+	top: calc(50% - #{ $border-width });
 	height: 2px;
 	left: 0;
 	right: 0;
-	background: theme( primary );
+	background: theme(primary);
 }
 
 .editor-block-list__insertion-point-inserter {
 	// Don't show on mobile.
 	display: none;
+
 	@include break-mobile() {
 		display: flex;
 	}
@@ -762,7 +782,7 @@
 }
 
 // Don't show the sibling inserter before the selected block.
-.edit-post-layout:not( .has-fixed-toolbar ) {
+.edit-post-layout:not(.has-fixed-toolbar) {
 	// The child selector is necessary for this to work properly in nested contexts.
 	.is-selected > .editor-block-list__insertion-point > .editor-block-list__insertion-point-inserter {
 		opacity: 0;
@@ -777,6 +797,7 @@
 }
 
 .editor-block-list__block {
+
 	> .editor-block-list__insertion-point {
 		position: absolute;
 		top: -$block-padding - $block-spacing / 2;
@@ -805,7 +826,7 @@
 	font-family: $editor-html-font;
 	font-size: $text-editor-font-size;
 	line-height: 150%;
-	transition: padding .2s linear;
+	transition: padding 0.2s linear;
 
 	&:focus {
 		box-shadow: none;
@@ -819,7 +840,7 @@
 
 .editor-block-list__block .editor-block-contextual-toolbar {
 	position: sticky;
-	z-index: z-index( '.editor-block-contextual-toolbar' );
+	z-index: z-index(".editor-block-contextual-toolbar");
 	white-space: nowrap;
 	text-align: left;
 	pointer-events: none;
@@ -832,6 +853,7 @@
 
 	// Paint the borders on the toolbar itself on mobile.
 	border-top: $border-width solid $light-gray-500;
+
 	.components-toolbar {
 		border-top: none;
 		border-bottom: none;
@@ -840,6 +862,7 @@
 
 	@include break-small() {
 		border-top: none;
+
 		.components-toolbar {
 			border-top: $border-width solid $light-gray-500;
 			border-bottom: $border-width solid $light-gray-500;
@@ -884,6 +907,7 @@
 .editor-block-contextual-toolbar {
 	// Position the contextual toolbar above the block.
 	.editor-block-list__block & {
+
 		@include break-small() {
 			bottom: auto;
 			left: auto;
@@ -891,10 +915,10 @@
 			box-shadow: none;
 
 			// Move the block toolbar out of the flow using translate.
-			transform: translateY( -$block-toolbar-height -$block-padding -$border-width );
+			transform: translateY(-$block-toolbar-height -$block-padding -$border-width);
 
 			// IE11 does not support `position: sticky`.
-			@supports ( position: sticky ) {
+			@supports (position: sticky) {
 				position: sticky;
 
 				// Compensate for translate, so the sticky sticks to the top.
@@ -910,6 +934,7 @@
 	}
 
 	.editor-block-list__block[data-align="right"] & {
+
 		@include break-small() {
 			float: right;
 		}
@@ -932,16 +957,20 @@
 	}
 
 	.editor-block-list__block[data-align="right"] & {
+
 		/*!rtl:begin:ignore*/
 		left: auto;
 		right: 0;
+
 		/*!rtl:end:ignore*/
 	}
 
 	.editor-block-list__block[data-align="left"] & {
+
 		/*!rtl:begin:ignore*/
 		right: auto;
 		left: 0;
+
 		/*!rtl:end:ignore*/
 	}
 
@@ -959,7 +988,7 @@
 .editor-block-list__breadcrumb {
 	position: absolute;
 	line-height: 1;
-	z-index: z-index( '.editor-block-list__breadcrumb' );
+	z-index: z-index(".editor-block-list__breadcrumb");
 
 	// Position in the top right of the border.
 	right: -$block-parent-side-ui-clearance;
@@ -978,27 +1007,29 @@
 		font-family: $default-font;
 		font-size: 11px;
 		padding: 4px 4px;
-		background: theme( outlines );
+		background: theme(outlines);
 		color: $white;
 
 		// Animate in
 		.editor-block-list__block:hover & {
-			@include fade_in( .1s );
+
+			@include fade_in(0.1s);
 		}
 	}
 }
 
 .editor-block-list__descendant-arrow::before {
-	content: '→';
+	content: "→";
 	display: inline-block;
 	padding: 0 4px;
 
 	.rtl & {
-		content: '←';
+		content: "←";
 	}
 }
 
 .editor-block-list__block {
+
 	@include break-small {
 		// Increase the hover and selection area around blocks.
 		// This makes the blue hover line and the settings button appear even if
@@ -1007,7 +1038,7 @@
 		// the block and select it. (eg. A fuzzy click target.)
 		&::before {
 			bottom: 0;
-			content: '';
+			content: "";
 			left: -$parent-block-padding - $block-padding;
 			position: absolute;
 			right: -$parent-block-padding - $block-padding;

@@ -1,10 +1,13 @@
 .wp-block-latest-posts {
+
 	&.alignleft {
 		margin-right: 2em;
 	}
+
 	&.alignright {
 		margin-left: 2em;
 	}
+
 	&.is-grid {
 		display: flex;
 		flex-wrap: wrap;
@@ -18,9 +21,11 @@
 	}
 
 	@include break-small {
+
 		@for $i from 2 through 6 {
+
 			&.columns-#{ $i } li {
-				width: calc( ( 100% / #{ $i } ) - 16px );
+				width: calc(( 100% / #{ $i }) - 16px);
 			}
 		}
 	}

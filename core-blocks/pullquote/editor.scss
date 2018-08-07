@@ -1,6 +1,8 @@
 .editor-block-list__block[data-type="core/pullquote"] {
+
 	&[data-align="left"],
 	&[data-align="right"] {
+
 		& .core-blocks-pullquote__content .editor-rich-text__tinymce[data-is-empty="true"]::before,
 		& .editor-rich-text p {
 			font-size: 20px;
@@ -9,6 +11,7 @@
 }
 
 .wp-block-pullquote {
+
 	cite {
 		display: block;
 	}
@@ -21,7 +24,7 @@
 	.editor-rich-text__tinymce[data-is-empty="true"]::before {
 		width: 100%;
 		left: 50%;
-		transform: translateX( -50% );
+		transform: translateX(-50%);
 	}
 
 	& > .core-blocks-pullquote__content .editor-rich-text__tinymce[data-is-empty="true"]::before,

@@ -1,39 +1,47 @@
 // Fade animations
 @keyframes animate_fade {
+
 	from {
 		opacity: 0;
-		transform: translateY( 4px );
+		transform: translateY(4px);
 	}
+
 	to {
 		opacity: 1;
-		transform: translateY( 0px );
+		transform: translateY(0);
 	}
 }
 
 @keyframes move_background {
+
 	from {
 		background-position: 0 0;
 	}
+
 	to {
 		background-position: 28px 0;
 	}
 }
 
 @keyframes loading_fade {
+
 	0% {
-		opacity: .5;
+		opacity: 0.5;
 	}
+
 	50% {
 		opacity: 1;
 	}
+
 	100% {
-		opacity: .5;
+		opacity: 0.5;
 	}
 }
 
 @keyframes slide_in_right {
+
 	100% {
-		transform: translateX( 0% );
+		transform: translateX(0%);
 	}
 }
 
@@ -56,7 +64,7 @@ body.gutenberg-editor-page {
 
 	/* We hide legacy notices in Gutenberg, because they were not designed in a way that scaled well.
 	   Plugins can use Gutenberg notices if they need to pass on information to the user when they are editing. */
-	#wpbody-content > div:not( .gutenberg ):not( #screen-meta ) {
+	#wpbody-content > div:not(.gutenberg):not(#screen-meta) {
 		display: none;
 	}
 
@@ -69,8 +77,8 @@ body.gutenberg-editor-page {
 		top: -1px;
 	}
 
-	ul#adminmenu a.wp-has-current-submenu:after,
-	ul#adminmenu>li.current>a.current:after {
+	ul#adminmenu a.wp-has-current-submenu::after,
+	ul#adminmenu > li.current > a.current::after {
 		border-right-color: $white;
 	}
 }
@@ -80,7 +88,7 @@ body.gutenberg-editor-page {
 
 	*,
 	*::before,
-	*:after {
+	*::after {
 		box-sizing: inherit;
 	}
 
@@ -99,12 +107,12 @@ body.gutenberg-editor-page {
 		right: 0;
 		bottom: 0;
 		left: 0;
-		min-height: calc( 100vh - #{ $admin-bar-height-big } );
+		min-height: calc(100vh - #{ $admin-bar-height-big });
 	}
 
 	// The WP header height changes at this breakpoint
 	@include break-medium {
-		min-height: calc( 100vh - #{ $admin-bar-height } );
+		min-height: calc(100vh - #{ $admin-bar-height });
 	}
 
 	img {
@@ -127,23 +135,24 @@ body.gutenberg-editor-page {
 .editor-post-publish-panel,
 .editor-block-list__block,
 .components-popover {
+
 	.input-control, // upstream name is .regular-text
-	input[type=text],
-	input[type=search],
-	input[type=radio],
-	input[type=tel],
-	input[type=time],
-	input[type=url],
-	input[type=week],
-	input[type=password],
-	input[type=checkbox],
-	input[type=color],
-	input[type=date],
-	input[type=datetime],
-	input[type=datetime-local],
-	input[type=email],
-	input[type=month],
-	input[type=number],
+	input[type="text"],
+	input[type="search"],
+	input[type="radio"],
+	input[type="tel"],
+	input[type="time"],
+	input[type="url"],
+	input[type="week"],
+	input[type="password"],
+	input[type="checkbox"],
+	input[type="color"],
+	input[type="date"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="email"],
+	input[type="month"],
+	input[type="number"],
 	select,
 	textarea {
 		margin-top: 0; // These override a "margin: 1px" from core.
@@ -151,9 +160,11 @@ body.gutenberg-editor-page {
 		font-family: $default-font;
 		font-size: $default-font-size;
 		padding: 6px 8px;
+
 		@include input-style__neutral();
 
 		&:focus {
+
 			@include input-style__focus();
 		}
 	}
@@ -173,32 +184,40 @@ body.gutenberg-editor-page {
 // Placeholder colors
 .editor-post-title,
 .editor-block-list__block {
+
 	input,
 	textarea {
 		// use opacity to work in various editor styles
 		&::-webkit-input-placeholder {
 			color: $dark-opacity-100;
 		}
+
 		&::-moz-placeholder {
 			color: $dark-opacity-100;
 		}
+
 		&:-ms-input-placeholder {
 			color: $dark-opacity-100;
 		}
+
 		&:-moz-placeholder {
 			color: $dark-opacity-100;
 		}
 
 		.is-dark-theme & {
+
 			&::-webkit-input-placeholder {
 				color: $light-opacity-300;
 			}
+
 			&::-moz-placeholder {
 				color: $light-opacity-300;
 			}
+
 			&:-ms-input-placeholder {
 				color: $light-opacity-300;
 			}
+
 			&:-moz-placeholder {
 				color: $light-opacity-300;
 			}
